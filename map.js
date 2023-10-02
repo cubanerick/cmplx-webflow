@@ -3,7 +3,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
     container: 'map',
     style: 'mapbox://styles/cubanerick/cln9cpawf07ef01qi0lcmhuko',
     center: [-81.5158, 27.6648],
-    zoom: 4,
+    zoom: 6,
   });
   const stores = {
     "type": "FeatureCollection",
