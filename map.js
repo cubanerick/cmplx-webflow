@@ -54,7 +54,7 @@ function addMarkers() {
 function flyToStore(currentFeature) {
   map.flyTo({
     center: currentFeature.geometry.coordinates,
-    zoom: 15
+    zoom: 9
   });
 }
 
