@@ -2,8 +2,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/cubanerick/cln9cpawf07ef01qi0lcmhuko',
-    center: [-80.2906, 25.7933],
-    zoom: 10,
+    center: [-81.5158, 27.6648],
+    zoom: 4,
   });
   const stores = {
     "type": "FeatureCollection",
