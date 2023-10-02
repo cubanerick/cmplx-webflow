@@ -1,0 +1,325 @@
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZnRsMHR6NHRoIn0.xVatmWjPQ2IxG9z_kdZNtg';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/cubanerick/cln9cpawf07ef01qi0lcmhuko',
+    center: [-80.2906, 25.7933],
+    zoom: 10,
+  });
+  const stores = {
+    "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -80.319055,
+            25.9110939
+        ]
+      },
+      "properties": {
+        "name": "Miami Lakes",
+        "phoneFormatted": "305-961-1032",
+        "phone": "3059611032",
+        "address": "7425 Miami Lakes Dr",
+        "city": "Hialeah",
+        "country": "United States",
+        "postalCode": "33014",
+        "state": "FL"
+      }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.3377317,
+            25.7987151
+          ]
+        },
+        "properties": {
+            "name": "Doral",
+          "phoneFormatted": "305-964-8021",
+          "phone": "3059648021",
+          "address": "2600 NW 87th Ave",
+          "city": "Doral",
+          "country": "United States",
+          "postalCode": "33172",
+          "state": "FL"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.3038566,
+            25.7487982
+          ]
+        },
+        "properties": {
+            "name": "West Miami",
+          "phoneFormatted": "786-773-2190",
+          "phone": "7867732190",
+          "address": "2342 SW 67th Ave",
+          "city": "Miami",
+          "country": "United States",
+          "postalCode": "33155",
+          "state": "FL"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.3587994,
+            26.0112679
+          ]
+        },
+        "properties": {
+            "name": "Pembroke Pines",
+          "phoneFormatted": "954-419-5950",
+          "phone": "9544195950",
+          "address": "15951 Pines Blvd",
+          "city": "Pembroke Pines",
+          "country": "United States",
+          "postalCode": "33027",
+          "state": "FL"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.3713497,
+            25.6718205
+          ]
+        },
+        "properties": {
+            "name": "Kendall",
+          "phoneFormatted": "305-203-5455",
+          "phone": "3052035455",
+          "address": "10840 SW 104th St",
+          "city": "Miami",
+          "country": "United States",
+          "postalCode": "33176",
+          "state": "FL"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.3115643,
+            25.6864462
+          ]
+        },
+        "properties": {
+            "name": "Pinecrest",
+          "phoneFormatted": "305-531-0766",
+          "phone": "3055310766",
+          "address": "9050 S Dixie Hwy",
+          "city": "Miami",
+          "country": "United States",
+          "postalCode": "33156",
+          "state": "FL"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.3675024,
+            25.7608728
+          ]
+        },
+        "properties": {
+            "name": "8 Street-FIU",
+          "phoneFormatted": "305-770-6400",
+          "phone": "3057706400",
+          "address": "10600 SW 8th St",
+          "city": "Miami",
+          "country": "United States",
+          "postalCode": "33174",
+          "state": "FL"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.4139733,
+            25.6238703
+          ]
+        },
+        "properties": {
+            "name": "Country Walk",
+          "phoneFormatted": "305-443-5275",
+          "phone": "3054435275",
+          "address": "15467 SW 137th Ave",
+          "city": "Miami",
+          "country": "United States",
+          "postalCode": "33177",
+          "state": "FL"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.1891683,
+            25.8045692
+          ]
+        },
+        "properties": {
+            "name": "Midtown",
+          "phoneFormatted": "305-961-1033",
+          "phone": "3059611033",
+          "address": "2917 Biscayne Blvd",
+          "city": "Miami",
+          "country": "United States",
+          "postalCode": "33137",
+          "state": "FL"
+        }
+    }
+  ]
+}
+function addMarkers() {
+  for (const marker of stores.features) {
+    const el = document.createElement('div');
+    el.id = `marker-${marker.properties.id}`;
+    el.className = 'marker';
+    new mapboxgl.Marker(el, { offset: [0, -23] })
+      .setLngLat(marker.geometry.coordinates)
+      .addTo(map);
+    el.addEventListener('click', (e) => {
+      flyToStore(marker);
+      createPopUp(marker);
+      const activeItem = document.getElementsByClassName('active');
+      e.stopPropagation();
+      if (activeItem[0]) {
+        activeItem[0].classList.remove('active');
+      }
+      const listing = document.getElementById(`listing-${marker.properties.id}`);
+      listing.classList.add('active');
+    });
+  }
+}
+function flyToStore(currentFeature) {
+  map.flyTo({
+    center: currentFeature.geometry.coordinates,
+    zoom: 15
+  });
+}
+
+function createPopUp(currentFeature) {
+  const popUps = document.getElementsByClassName('mapboxgl-popup');
+  if (popUps[0]) popUps[0].remove();
+  const popup = new mapboxgl.Popup({ closeOnClick: false })
+    .setLngLat(currentFeature.geometry.coordinates)
+    .setHTML(`<h4>${currentFeature.properties.name}</h4><h4>${currentFeature.properties.address}</h4>`)
+    .addTo(map);
+}
+stores.features.forEach(function (store, i) {
+  store.properties.id = i;
+});
+
+let buildLocations = () => {
+	const items = document.querySelectorAll('.item');
+  items.forEach(e => {
+  	let name = e.children[0].children[0].children[0].children[0].innerHTML;
+  	let obj = stores.features.find(o => o.properties.name === name);
+    let link = e.children[0].children[0].children[0];
+    let distanceText = e.children[0].children[0].children[1];
+    
+  	e.id = `listing-${obj.properties.id}`;
+    link.id = `link-${obj.properties.id}`;
+
+    if (obj.properties.distance) {
+        const roundedDistance = Math.round(obj.properties.distance * 100) / 100;
+        distanceText.innerHTML = `${roundedDistance} MILES AWAY`;
+        e.setAttribute('distance', roundedDistance);
+    }
+    link.addEventListener('click', function () {
+      for (const feature of stores.features) {
+        if (this.id === `link-${feature.properties.id}`) {
+          flyToStore(feature);
+          createPopUp(feature);
+        }
+      }
+      const activeItem = document.getElementsByClassName('active');
+      if (activeItem[0]) {
+        activeItem[0].classList.remove('active');
+      }
+      this.parentNode.parentNode.classList.add('active');
+    });
+  });
+};
+
+map.on('load', () => {
+    map.addSource('places', {
+      type: 'geojson',
+      data: stores
+    });
+    const geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        marker: true,
+        bbox: [-124.848974, 24.396308, -66.885444, 49.384358]
+    });
+	map.addControl(geocoder, 'top-left');
+    addMarkers();
+    map.on('click', (event) => {
+      const features = map.queryRenderedFeatures(event.point, {
+        layers: ['locations']
+      });
+      if (!features.length) return;
+      const clickedPoint = features[0];
+      flyToStore(clickedPoint);
+      createPopUp(clickedPoint);
+      const activeItem = document.getElementsByClassName('active');
+      if (activeItem[0]) {
+        activeItem[0].classList.remove('active');
+      }
+      const listing = document.getElementById(
+        `listing-${clickedPoint.properties.id}`
+      );
+      listing.classList.add('active');
+    });
+    buildLocations();
+    geocoder.on('result', (event) => {
+        const searchResult = event.result.geometry;
+        const options = { units: 'miles' };
+        for (const store of stores.features) {
+            store.properties.distance = turf.distance(
+            searchResult,
+            store.geometry,
+            options
+            );
+        }
+        buildLocations();
+        var list = document.querySelector('.listings');
+        var items = Array.from(list.childNodes);
+
+        items.sort(function(a, b) {
+            return parseFloat(a.children[0].children[0].children[1].innerHTML.split(' ')[0]) - parseFloat(b.children[0].children[0].children[1].innerHTML.split(' ')[0])
+        });
+
+        document.querySelector('.listings').innerHTML = '';
+
+        for (i = 0; i < items.length; ++i) {
+            list.appendChild(items[i]);
+        }
+        buildLocations();
+        const activeListing = document.getElementById(
+            `listing-${stores.features[0].properties.id}`
+        );
+        activeListing.classList.add('active');
+    });
+});
