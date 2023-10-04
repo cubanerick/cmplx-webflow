@@ -2,8 +2,10 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/cubanerick/cln9cpawf07ef01qi0lcmhuko',
-    center: [-81.5158, 27.6648],
-    zoom: 6,
+    // center: [-81.5158, 27.6648],
+    // zoom: 6,
+    center: [-98.5795, 39.8283], // Centered on the United States
+    zoom: 3, // Adjust the zoom level as needed
   });
   const stores = {
     "type": "FeatureCollection",
@@ -103,16 +105,22 @@ let buildLocations = () => {
 };
 
 map.on('load', () => {
-    map.addSource('places', {
-      type: 'geojson',
-      data: stores
+  setTimeout(function() {
+    map.flyTo({
+      center: [-81.5158, 27.7663], // Centered on Florida
+      zoom: 7, // Zoom level for Florida
     });
-    const geocoder = new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-        marker: true,
-        bbox: [-124.848974, 24.396308, -66.885444, 49.384358]
-    });
+  }, 3000);
+  map.addSource('places', {
+    type: 'geojson',
+    data: stores
+  });
+  const geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
+      marker: true,
+      bbox: [-124.848974, 24.396308, -66.885444, 49.384358]
+  });
 	map.addControl(geocoder, 'top-left');
     addMarkers();
     map.on('click', (event) => {
