@@ -5,7 +5,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
     // center: [-81.5158, 27.6648],
     // zoom: 6,
     center: [-98.5795, 39.8283], // Centered on the United States
-    zoom: 3, // Adjust the zoom level as needed
+    zoom: 4, // Adjust the zoom level as needed
   });
   const stores = {
     "type": "FeatureCollection",
@@ -108,9 +108,9 @@ map.on('load', () => {
   setTimeout(function() {
     map.flyTo({
       center: [-81.5158, 27.7663], // Centered on Florida
-      zoom: 7, // Zoom level for Florida
+      zoom: 6, // Zoom level for Florida
     });
-  }, 3000);
+  }, 2000);
   map.addSource('places', {
     type: 'geojson',
     data: stores
