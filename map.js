@@ -47,7 +47,12 @@ function addMarkers() {
       .setLngLat(marker.geometry.coordinates)
       .addTo(map);
     el.addEventListener('click', (e) => {
-      console.log(e);
+      console.log(marker.properties.name);
+      document.querySelectorAll('.collection-item-2').forEach(e => {
+        if(e.getAttribute('data-item') === marker.properties.name){
+          e.style.display = 'block';
+        }
+      })
       // flyToStore(marker);
       createPopUp(marker);
       // const activeItem = document.getElementsByClassName('active');
