@@ -15,19 +15,25 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
       "geometry": {
         "type": "Point",
         "coordinates": [
-            -80.319055,
-            25.9110939
+          -80.319055,
+          25.9110939
         ]
       },
       "properties": {
-        "name": "Miami Lakes",
-        "phoneFormatted": "305-961-1032",
-        "phone": "3059611032",
-        "address": "7425 Miami Lakes Dr",
-        "city": "Hialeah",
-        "country": "United States",
-        "postalCode": "33014",
-        "state": "FL"
+        "name": "north-corridor",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.3377317,
+          25.7987151
+        ]
+      },
+      "properties": {
+        "name": "south-corridor",
       }
     }
   ]
@@ -41,15 +47,16 @@ function addMarkers() {
       .setLngLat(marker.geometry.coordinates)
       .addTo(map);
     el.addEventListener('click', (e) => {
-      flyToStore(marker);
-      createPopUp(marker);
-      const activeItem = document.getElementsByClassName('active');
-      e.stopPropagation();
-      if (activeItem[0]) {
-        activeItem[0].classList.remove('active');
-      }
-      const listing = document.getElementById(`listing-${marker.properties.id}`);
-      listing.classList.add('active');
+      console.log(e);
+      // flyToStore(marker);
+      // createPopUp(marker);
+      // const activeItem = document.getElementsByClassName('active');
+      // e.stopPropagation();
+      // if (activeItem[0]) {
+      //   activeItem[0].classList.remove('active');
+      // }
+      // const listing = document.getElementById(`listing-${marker.properties.id}`);
+      // listing.classList.add('active');
     });
   }
 }
