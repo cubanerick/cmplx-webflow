@@ -183,3 +183,7 @@ map.on('load', () => {
         activeListing.classList.add('active');
     });
 });
+
+document.querySelectorAll('.image-15').forEach(e => {
+  console.log(e.parentElement);
+})
