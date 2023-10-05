@@ -49,7 +49,7 @@ function addMarkers() {
     el.addEventListener('click', (e) => {
       console.log(e);
       // flyToStore(marker);
-      // createPopUp(marker);
+      createPopUp(marker);
       // const activeItem = document.getElementsByClassName('active');
       // e.stopPropagation();
       // if (activeItem[0]) {
@@ -72,7 +72,7 @@ function createPopUp(currentFeature) {
   if (popUps[0]) popUps[0].remove();
   const popup = new mapboxgl.Popup({ closeOnClick: false })
     .setLngLat(currentFeature.geometry.coordinates)
-    .setHTML(`<h4>${currentFeature.properties.name}</h4><h4>${currentFeature.properties.address}</h4>`)
+    // .setHTML(`<h4>${currentFeature.properties.name}</h4><h4>${currentFeature.properties.address}</h4>`)
     .addTo(map);
 }
 stores.features.forEach(function (store, i) {
@@ -152,11 +152,11 @@ map.on('load', () => {
         const searchResult = event.result.geometry;
         const options = { units: 'miles' };
         for (const store of stores.features) {
-            store.properties.distance = turf.distance(
+          store.properties.distance = turf.distance(
             searchResult,
             store.geometry,
             options
-            );
+          );
         }
         buildLocations();
         var list = document.querySelector('.listings');
