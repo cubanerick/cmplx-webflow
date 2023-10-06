@@ -48,6 +48,10 @@ function addMarkers() {
       .addTo(map);
     el.addEventListener('click', (e) => {
       console.log(marker.properties.name);
+      document.querySelectorAll('.marker').forEach(e => {
+        e.style.backgroundImage = null;
+      });
+      el.style.backgroundImage = 'url("https://uploads-ssl.webflow.com/64ee47c85867e1223ad76904/651f4e32a20c5481951caa19_Group%20104.png")';
       document.querySelectorAll('.collection-item-2').forEach(e => {
         if(e.getAttribute('data-item') === marker.properties.name){
           e.style.display = 'block';
