@@ -15,12 +15,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.319055,
-          25.9110939
+          -80.356630,
+          25.879110
         ]
       },
       "properties": {
-        "name": "north-corridor",
+        "name": "miami-dade-county-dtpw",
       }
     },
     {
@@ -28,12 +28,25 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -80.3377317,
-          25.7987151
+          -82.146160,
+          27.012800
         ]
       },
       "properties": {
-        "name": "south-corridor",
+        "name": "toledo-blade-boulevard-reconstruction",
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -80.295143,
+          27.164560
+        ]
+      },
+      "properties": {
+        "name": "project-development-and-environment-pd-e-study",
       }
     }
   ]
