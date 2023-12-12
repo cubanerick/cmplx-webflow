@@ -111,7 +111,7 @@ function addMarkers() {
       document.querySelectorAll('.marker').forEach(e => {
         e.style.backgroundImage = null;
       });
-      el.style.backgroundImage = 'url("https://uploads-ssl.webflow.com/64ee47c85867e1223ad76904/651f4e32a20c5481951caa19_Group%20104.png")';
+      el.style.backgroundImage = 'url("https://uploads-ssl.webflow.com/64ee47c85867e1223ad76904/65788ee8bc90be6938707328_Active%20Pin.png")';
       document.querySelectorAll('.collection-item-2').forEach(e => {
         if(e.getAttribute('data-item') === marker.properties.name){
           e.style.display = 'block';
