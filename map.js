@@ -9,47 +9,94 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
   });
   const stores = {
     "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -80.356630,
-          25.879110
-        ]
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.356630,
+            25.879110
+          ]
+        },
+        "properties": {
+          "name": "miami-dade-county-dtpw",
+        }
       },
-      "properties": {
-        "name": "miami-dade-county-dtpw",
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -82.146160,
-          27.012800
-        ]
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -82.146160,
+            27.012800
+          ]
+        },
+        "properties": {
+          "name": "toledo-blade-boulevard-reconstruction",
+        }
       },
-      "properties": {
-        "name": "toledo-blade-boulevard-reconstruction",
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -80.295143,
-          27.164560
-        ]
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.295143,
+            27.164560
+          ]
+        },
+        "properties": {
+          "name": "project-development-and-environment-pd-e-study",
+        }
       },
-      "properties": {
-        "name": "project-development-and-environment-pd-e-study",
+      {
+        "type": "Feature",
+        "geometry": {
+          'type': 'LineString',
+          'coordinates': [
+            [
+              -122.68035572839027,
+              45.52729517240144
+            ],
+            [
+              -122.67657260381876,
+              45.527330174436116
+            ],
+            [
+              -122.67657129671815,
+              45.52666556739695
+            ],
+            [
+              -122.67085005715236,
+              45.52677044480427
+            ],
+            [
+              -122.66645605237485,
+              45.52862702776275
+            ],
+            [
+              -122.66560830926798,
+              45.52866212597536
+            ],
+            [
+              -122.66532421497476,
+              45.52712020010674
+            ],
+            [
+              -122.6654770006126,
+              45.52158881104725
+            ],
+            [
+              -122.66684678096325,
+              45.51749007039993
+            ]
+          ],
+        },
+        "properties": {
+          "name": "route-example",
+        }
       }
-    }
-  ]
+    ]
 }
 function addMarkers() {
   for (const marker of stores.features) {
@@ -143,7 +190,15 @@ map.on('load', () => {
   }, 2000);
   map.addSource('places', {
     type: 'geojson',
-    data: stores
+    data: stores,
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+    paint: {
+      'line-color': '#888',
+      'line-width': 8
+    }
   });
   const geocoder = new MapboxGeocoder({
       accessToken: mapboxgl.accessToken,
