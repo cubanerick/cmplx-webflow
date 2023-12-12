@@ -169,15 +169,7 @@ map.on('load', () => {
   }, 2000);
   map.addSource('places', {
     type: 'geojson',
-    data: stores,
-    layout: {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
-    paint: {
-      'line-color': '#ffbd70',
-      'line-width': 8
-    }
+    data: stores
   });
   map.addLayer({
     id: 'route',
