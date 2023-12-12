@@ -138,6 +138,7 @@ map.on('load', () => {
     map.flyTo({
       center: [-81.5158, 27.7663], // Centered on Florida
       zoom: 6, // Zoom level for Florida
+      speed: 0.5,
     });
   }, 2000);
   map.addSource('places', {
