@@ -82,7 +82,7 @@ function addMarkers() {
     const el = document.createElement('div');
     el.id = `marker-${marker.properties.id}`;
     el.className = 'marker';
-    new mapboxgl.Marker(el, { offset: [0, 0] })
+    new mapboxgl.Marker(el, { offset: [-23, -23] })
       .setLngLat(marker.geometry.coordinates)
       .addTo(map);
     el.addEventListener('click', (e) => {
