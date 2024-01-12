@@ -1,4 +1,16 @@
 mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZnRsMHR6NHRoIn0.xVatmWjPQ2IxG9z_kdZNtg';
+// DTPW MDC South Corridor	 25°26'52.14"N	 80°28'45.09"W
+// 	 25.462775	 -80.482456
+// 	 25.58898611	 -80.35964444
+// 	 25.68503056	 -80.31370278
+		
+// CR-713 SW High Meadow Avenue	 27° 7'32.12"N	 80°16'48.61"W
+// 	 27.15093333 -80.29648056
+// 	 27.16141111	 -80.29635278
+		
+// Toledo Blade Boulevard	 27° 0'24.40"N	 82° 9'45.71"W
+// 	 27.00898611	 -82.16361667
+// 	 27.01816944	 -82.16361667
   var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/cubanerick/cln9cpawf07ef01qi0lcmhuko',
@@ -15,8 +27,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -80.356630,
-            25.879110
+            -80.482456,
+            25.462775
           ]
         },
         "properties": {
@@ -28,8 +40,21 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -82.146160,
-            27.012800
+            -80.35964444,
+            25.68503056
+          ]
+        },
+        "properties": {
+          "name": "miami-dade-county-dtpw",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -82.16361667,
+            27.00898611
           ]
         },
         "properties": {
@@ -41,8 +66,21 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -80.295143,
-            27.164560
+            -82.16361667,
+            27.01816944
+          ]
+        },
+        "properties": {
+          "name": "toledo-blade-boulevard-reconstruction",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.29648056,
+            27.15093333
           ]
         },
         "properties": {
@@ -54,25 +92,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -122.68035572839027,
-            45.52729517240144
+            -80.29635278,
+            27.16141111
           ]
         },
         "properties": {
-          "name": "route-example",
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            -122.66684678096325,
-            45.51749007039993
-          ]
-        },
-        "properties": {
-          "name": "route-example",
+          "name": "project-development-and-environment-pd-e-study",
         }
       }
     ]
@@ -183,40 +208,80 @@ map.on('load', () => {
           'type': 'LineString',
           'coordinates': [
             [
-              -122.68035572839027,
-              45.52729517240144
+              -80.482456,
+              25.462775
             ],
             [
-              -122.67657260381876,
-              45.527330174436116
+              -80.35964444,
+              25.58898611
             ],
             [
-              -122.67657129671815,
-              45.52666556739695
+              -80.31370278,
+              25.68503056
+            ]
+          ],
+        },
+      }
+    },
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+    paint: {
+      'line-color': '#ffbd70',
+      'line-width': 4
+    }
+  });
+  map.addLayer({
+    id: 'route',
+    type: 'line',
+    source: {
+      'type': 'geojson',
+      'data': {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+          'type': 'LineString',
+          'coordinates': [
+            [
+              -80.29648056,
+              27.15093333
             ],
             [
-              -122.67085005715236,
-              45.52677044480427
+              -80.29635278,
+              27.16141111
+            ]
+          ],
+        },
+      }
+    },
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+    paint: {
+      'line-color': '#ffbd70',
+      'line-width': 4
+    }
+  })
+  map.addLayer({
+    id: 'route',
+    type: 'line',
+    source: {
+      'type': 'geojson',
+      'data': {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+          'type': 'LineString',
+          'coordinates': [
+            [
+              -82.16361667,
+              27.00898611
             ],
             [
-              -122.66645605237485,
-              45.52862702776275
-            ],
-            [
-              -122.66560830926798,
-              45.52866212597536
-            ],
-            [
-              -122.66532421497476,
-              45.52712020010674
-            ],
-            [
-              -122.6654770006126,
-              45.52158881104725
-            ],
-            [
-              -122.66684678096325,
-              45.51749007039993
+              -82.16361667,
+              27.01816944
             ]
           ],
         },
