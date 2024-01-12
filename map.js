@@ -197,7 +197,7 @@ map.on('load', () => {
     data: stores
   });
   map.addLayer({
-    id: 'route',
+    id: 'route1',
     type: 'line',
     source: {
       'type': 'geojson',
@@ -233,7 +233,7 @@ map.on('load', () => {
     }
   });
   map.addLayer({
-    id: 'route',
+    id: 'route2',
     type: 'line',
     source: {
       'type': 'geojson',
@@ -265,7 +265,7 @@ map.on('load', () => {
     }
   })
   map.addLayer({
-    id: 'route',
+    id: 'route3',
     type: 'line',
     source: {
       'type': 'geojson',
