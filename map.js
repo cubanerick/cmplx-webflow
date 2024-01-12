@@ -1,19 +1,22 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZnRsMHR6NHRoIn0.xVatmWjPQ2IxG9z_kdZNtg';
-// DTPW MDC South Corridor	 25°26'52.14"N	 80°28'45.09"W
-// 	 25.462775	 -80.482456
-// 	 25.58898611	 -80.35964444
-// 	 25.68503056	 -80.31370278
-		
-// CR-713 SW High Meadow Avenue	 27° 7'32.12"N	 80°16'48.61"W
-// 	 27.15093333 -80.29648056
-// 	 27.16141111	 -80.29635278
-		
-// Toledo Blade Boulevard	 27° 0'24.40"N	 82° 9'45.71"W
-// 	 27.00898611	 -82.16361667
-// 	 27.01816944	 -82.16361667
+mapboxgl.accessToken = 'pk.eyJ1IjoiY21wbHh3b3JsZCIsImEiOiJjbG1xcXVwOXgwMDUyMnRucG5jZjB6MTF2In0.iVeoOfjLXB2lRkxMdM8zNQ';
+// DTPW MDC South Corridor
+//	25.447817	-80.479192
+// 	25.462775	-80.482456
+// 	25.588986	-80.359644
+// 	25.685031	-80.313703
+					
+// CR-713 SW High Meadow Avenue	 
+//   27.125589	-80.280169
+// 	 27.150933	-80.296481
+// 	 27.161411	-80.296353
+					
+// Toledo Blade Boulevard	 
+//   27.006778	-82.162697
+// 	 27.008986	-82.163617
+// 	 27.018169	-82.163617
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/cubanerick/cln9cpawf07ef01qi0lcmhuko',
+    style: 'mapbox://styles/cmplxworld/clrb4wlg5006701ns357n1pte',
     // center: [-81.5158, 27.6648],
     // zoom: 6,
     center: [-98.5795, 39.8283], // Centered on the United States
@@ -27,8 +30,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -80.482456,
-            25.462775
+            -80.479192,
+            25.447817
           ]
         },
         "properties": {
@@ -40,8 +43,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -80.31370278,
-            25.68503056
+            -80.313703,
+            25.685031
           ]
         },
         "properties": {
@@ -53,8 +56,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -82.16361667,
-            27.00898611
+            -82.162697,
+            27.006778
           ]
         },
         "properties": {
@@ -66,8 +69,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -82.16361667,
-            27.01816944
+            -82.163617,
+            27.018169
           ]
         },
         "properties": {
@@ -79,8 +82,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -80.29648056,
-            27.15093333
+            -80.280169,
+            27.125589
           ]
         },
         "properties": {
@@ -92,8 +95,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -80.29635278,
-            27.16141111
+            -80.296353,
+            27.161411
           ]
         },
         "properties": {
@@ -196,6 +199,21 @@ map.on('load', () => {
     type: 'geojson',
     data: stores
   });
+  // DTPW MDC South Corridor
+  //	25.447817	-80.479192
+  // 	25.462775	-80.482456
+  // 	25.588986	-80.359644
+  // 	25.685031	-80.313703
+            
+  // CR-713 SW High Meadow Avenue	 
+  //   27.125589	-80.280169
+  // 	 27.150933	-80.296481
+  // 	 27.161411	-80.296353
+            
+  // Toledo Blade Boulevard	 
+  //   27.006778	-82.162697
+  // 	 27.008986	-82.163617
+  // 	 27.018169	-82.163617
   map.addLayer({
     id: 'route1',
     type: 'line',
@@ -208,16 +226,20 @@ map.on('load', () => {
           'type': 'LineString',
           'coordinates': [
             [
+              -80.479192,
+              25.447817
+            ],
+            [
               -80.482456,
               25.462775
             ],
             [
-              -80.35964444,
-              25.58898611
+              -80.359644,
+              25.588986
             ],
             [
-              -80.31370278,
-              25.68503056
+              -80.313703,
+              25.685031
             ]
           ],
         },
@@ -244,12 +266,16 @@ map.on('load', () => {
           'type': 'LineString',
           'coordinates': [
             [
-              -80.29648056,
-              27.15093333
+              -80.280169,
+              27.125589
             ],
             [
-              -80.29635278,
-              27.16141111
+              -80.296481,
+              27.150933
+            ],
+            [
+              -80.296353,
+              27.161411
             ]
           ],
         },
@@ -276,12 +302,16 @@ map.on('load', () => {
           'type': 'LineString',
           'coordinates': [
             [
-              -82.16361667,
-              27.00898611
+              -82.162697,
+              27.006778
             ],
             [
-              -82.16361667,
-              27.01816944
+              -82.163617,
+              27.008986
+            ],
+            [
+              -82.163617,
+              27.018169
             ]
           ],
         },
