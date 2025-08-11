@@ -49,32 +49,32 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
           "name": "project-development-and-environment-pd-e-study",
         }
       },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            -122.68035572839027,
-            45.52729517240144
-          ]
-        },
-        "properties": {
-          "name": "route-example",
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [
-            -122.66684678096325,
-            45.51749007039993
-          ]
-        },
-        "properties": {
-          "name": "route-example",
-        }
-      }
+      // {
+      //   "type": "Feature",
+      //   "geometry": {
+      //     "type": "Point",
+      //     "coordinates": [
+      //       -122.68035572839027,
+      //       45.52729517240144
+      //     ]
+      //   },
+      //   "properties": {
+      //     "name": "route-example",
+      //   }
+      // },
+      // {
+      //   "type": "Feature",
+      //   "geometry": {
+      //     "type": "Point",
+      //     "coordinates": [
+      //       -122.66684678096325,
+      //       45.51749007039993
+      //     ]
+      //   },
+      //   "properties": {
+      //     "name": "route-example",
+      //   }
+      // }
     ]
 }
 function addMarkers() {
