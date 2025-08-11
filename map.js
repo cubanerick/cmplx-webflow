@@ -1,7 +1,22 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZnRsMHR6NHRoIn0.xVatmWjPQ2IxG9z_kdZNtg';
+mapboxgl.accessToken = 'pk.eyJ1IjoiY21wbHh3b3JsZCIsImEiOiJjbG1xcXVwOXgwMDUyMnRucG5jZjB6MTF2In0.iVeoOfjLXB2lRkxMdM8zNQ';
+// DTPW MDC South Corridor
+//	25.447817	-80.479192
+// 	25.462775	-80.482456
+// 	25.588986	-80.359644
+// 	25.685031	-80.313703
+					
+// CR-713 SW High Meadow Avenue	 
+//   27.125589	-80.280169
+// 	 27.150933	-80.296481
+// 	 27.161411	-80.296353
+					
+// Toledo Blade Boulevard	 
+//   27.006778	-82.162697
+// 	 27.008986	-82.163617
+// 	 27.018169	-82.163617
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/cubanerick/cln9cpawf07ef01qi0lcmhuko',
+    style: 'mapbox://styles/cmplxworld/clrb4wlg5006701ns357n1pte',
     // center: [-81.5158, 27.6648],
     // zoom: 6,
     center: [-98.5795, 39.8283], // Centered on the United States
@@ -15,8 +30,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -80.356630,
-            25.879110
+            -80.479192,
+            25.447817
           ]
         },
         "properties": {
@@ -28,8 +43,21 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -82.146160,
-            27.012800
+            -80.313703,
+            25.685031
+          ]
+        },
+        "properties": {
+          "name": "miami-dade-county-dtpw",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -82.162697,
+            27.006778
           ]
         },
         "properties": {
@@ -41,40 +69,40 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiY3ViYW5lcmljayIsImEiOiJjbGp3N29jaWowcDZwM2ZxZ
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -80.295143,
-            27.164560
+            -82.163617,
+            27.018169
+          ]
+        },
+        "properties": {
+          "name": "toledo-blade-boulevard-reconstruction",
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.280169,
+            27.125589
           ]
         },
         "properties": {
           "name": "project-development-and-environment-pd-e-study",
         }
       },
-      // {
-      //   "type": "Feature",
-      //   "geometry": {
-      //     "type": "Point",
-      //     "coordinates": [
-      //       -122.68035572839027,
-      //       45.52729517240144
-      //     ]
-      //   },
-      //   "properties": {
-      //     "name": "route-example",
-      //   }
-      // },
-      // {
-      //   "type": "Feature",
-      //   "geometry": {
-      //     "type": "Point",
-      //     "coordinates": [
-      //       -122.66684678096325,
-      //       45.51749007039993
-      //     ]
-      //   },
-      //   "properties": {
-      //     "name": "route-example",
-      //   }
-      // }
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -80.296353,
+            27.161411
+          ]
+        },
+        "properties": {
+          "name": "project-development-and-environment-pd-e-study",
+        }
+      }
     ]
 }
 function addMarkers() {
@@ -171,8 +199,23 @@ map.on('load', () => {
     type: 'geojson',
     data: stores
   });
+  // DTPW MDC South Corridor
+  //	25.447817	-80.479192
+  // 	25.462775	-80.482456
+  // 	25.588986	-80.359644
+  // 	25.685031	-80.313703
+            
+  // CR-713 SW High Meadow Avenue	 
+  //   27.125589	-80.280169
+  // 	 27.150933	-80.296481
+  // 	 27.161411	-80.296353
+            
+  // Toledo Blade Boulevard	 
+  //   27.006778	-82.162697
+  // 	 27.008986	-82.163617
+  // 	 27.018169	-82.163617
   map.addLayer({
-    id: 'route',
+    id: 'route1',
     type: 'line',
     source: {
       'type': 'geojson',
@@ -183,40 +226,92 @@ map.on('load', () => {
           'type': 'LineString',
           'coordinates': [
             [
-              -122.68035572839027,
-              45.52729517240144
+              -80.479192,
+              25.447817
             ],
             [
-              -122.67657260381876,
-              45.527330174436116
+              -80.482456,
+              25.462775
             ],
             [
-              -122.67657129671815,
-              45.52666556739695
+              -80.359644,
+              25.588986
             ],
             [
-              -122.67085005715236,
-              45.52677044480427
+              -80.313703,
+              25.685031
+            ]
+          ],
+        },
+      }
+    },
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+    paint: {
+      'line-color': '#ffbd70',
+      'line-width': 4
+    }
+  });
+  map.addLayer({
+    id: 'route2',
+    type: 'line',
+    source: {
+      'type': 'geojson',
+      'data': {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+          'type': 'LineString',
+          'coordinates': [
+            [
+              -80.280169,
+              27.125589
             ],
             [
-              -122.66645605237485,
-              45.52862702776275
+              -80.296481,
+              27.150933
             ],
             [
-              -122.66560830926798,
-              45.52866212597536
+              -80.296353,
+              27.161411
+            ]
+          ],
+        },
+      }
+    },
+    layout: {
+      'line-join': 'round',
+      'line-cap': 'round'
+    },
+    paint: {
+      'line-color': '#ffbd70',
+      'line-width': 4
+    }
+  })
+  map.addLayer({
+    id: 'route3',
+    type: 'line',
+    source: {
+      'type': 'geojson',
+      'data': {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+          'type': 'LineString',
+          'coordinates': [
+            [
+              -82.162697,
+              27.006778
             ],
             [
-              -122.66532421497476,
-              45.52712020010674
+              -82.163617,
+              27.008986
             ],
             [
-              -122.6654770006126,
-              45.52158881104725
-            ],
-            [
-              -122.66684678096325,
-              45.51749007039993
+              -82.163617,
+              27.018169
             ]
           ],
         },
